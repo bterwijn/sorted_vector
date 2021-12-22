@@ -13,10 +13,10 @@ template<typename T,typename Compare> ostream& operator<<(ostream& os,const set<
 int main()
 {
     sorted_vector<int> svec; // type (int) requires operators: '==','<'
-    
-    int length=4;
-    for (int i=length; i>0; i--)
-        svec.push_back(i);                   // push_back some elements
+    svec.push_back(4);       // push_back some elements
+    svec.push_back(3);       //
+    svec.push_back(2);       //
+    svec.push_back(1);       //
     
     cout<<"vector:"<< svec.vector() <<endl; // print in sequence
     cout<<"set   :"<< svec.set()    <<endl; // print in sorted order

@@ -3,14 +3,14 @@ C++ vector that can be accessed as a normal vector and in sorted
 order. Stores all data both in a std::vector and std::set and keeps
 the std::set in sync when the vector is manipulated.
 
-The operator[] function now is gives constant references only. Write
-to a specific index using member function:
-
+To preserve the invariance all iterators are const_iterators only.
+The operator[] function now only gives constant references. Write to a
+specific index using member function:
 ```c++
 void update(int index,const T& value)
 ```
 
-## Example
+## example code
 ```c++
 #include "sorted_vector.h"
 
@@ -27,15 +27,15 @@ template<typename T,typename Compare> ostream& operator<<(ostream& os,const set<
 int main()
 {
     sorted_vector<int> svec; // type (int) requires operators: '==','<'
-    
-    int length=4;
-    for (int i=length; i>0; i--)
-        svec.push_back(i);                   // push_back some elements
+    svec.push_back(4);       // push_back some elements
+    svec.push_back(3);       //
+    svec.push_back(2);       //
+    svec.push_back(1);       //
     
     cout<<"vector:"<< svec.vector() <<endl; // print in sequence
     cout<<"set   :"<< svec.set()    <<endl; // print in sorted order
 
-    // sorting will be kept up to date when:
+    // sorting will be kept in sync when:
     svec.update( svec.size()/2, -10);          // update element at index
     svec.insert( ++svec.vector().begin(), 99); // insert element at iterator
     svec.erase( svec.vector().begin() );       // erase element at iterator
