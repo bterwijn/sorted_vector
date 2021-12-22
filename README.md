@@ -1,17 +1,17 @@
 # sorted_vector
-Vector that can be accessed as a normal vector and in sorted
+C++ vector that can be accessed as a normal vector and in sorted
 order. Stores all data both in a std::vector and std::set and keeps
 the std::set in sync when the vector is manipulated.
 
 The operator[] function now is gives constant references only. Write
 to a specific index using member function:
 
-```
+```c++
 void update(int index,const T& value)
 ```
 
 ## Example
-```
+```c++
 #include "sorted_vector.h"
 
 #include <iostream>
@@ -47,7 +47,9 @@ int main()
 ```
 
 output: 
->vector: 4 3 2 1 
->set : 1 2 3 4 
->vector: 99 3 -10
->set : -10 3 99
+```
+vector: 4 3 2 1 
+set   : 1 2 3 4 
+vector: 99 3 -10
+set   : -10 3 99
+```
