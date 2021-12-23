@@ -1,13 +1,13 @@
 # sorted_vector
 C++ vector that can be accessed as a normal vector and in sorted
 order. Stores all data both in a std::vector and std::set and keeps
-the std::set in sync when the vector is manipulated. As a result the
-time complexity of push_back/update/insert/erase/pop_back operations
-is now at least O(log n).
+the std::set in sync when the std::vector is manipulated. As a result
+the time complexity of push_back/update/insert/erase/pop_back
+operations is now at least O(log n).
 
 To preserve the invariance all iterators are const_iterators only.
-The [] operator now only gives constant references. Instead write to a
-specific index using member function:
+The [] operator now only gives constant references, instead write to a
+specific index in the std::vector using member function:
 ```c++
 void update(int index,const T& value)
 ```
